@@ -2,31 +2,38 @@
 
 import { Suspense, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, MeshDistortMaterial } from "@react-three/drei";
+import { Float, useTexture } from "@react-three/drei";
+import { SRGBColorSpace } from "three";
 import type { Mesh } from "three";
 
-function Orb() {
+function Portrait() {
   const meshRef = useRef<Mesh>(null);
+  const texture = useTexture("/profile.jpeg");
+  texture.colorSpace = SRGBColorSpace;
 
-  useFrame((_, delta) => {
+  useFrame((state, delta) => {
     if (!meshRef.current) return;
-    meshRef.current.rotation.x += delta * 0.08;
-    meshRef.current.rotation.y += delta * 0.12;
+    const { pointer } = state;
+    const lerp = 1 - Math.exp(-delta * 4);
+    meshRef.current.rotation.y += (pointer.x * 0.35 - meshRef.current.rotation.y) * lerp;
+    meshRef.current.rotation.x += (-pointer.y * 0.25 - meshRef.current.rotation.x) * lerp;
   });
 
   return (
-    <Float speed={1.4} rotationIntensity={0.55} floatIntensity={1.3}>
-      <mesh ref={meshRef} scale={1.7}>
-        <icosahedronGeometry args={[1, 5]} />
-        <MeshDistortMaterial
+    <Float speed={1.4} rotationIntensity={0.25} floatIntensity={1.3}>
+      <mesh scale={1.7} position={[0, 0, -0.05]}>
+        <torusGeometry args={[1.12, 0.045, 32, 100]} />
+        <meshStandardMaterial
           color="#5b8def"
-          distort={0.42}
-          speed={1.8}
-          roughness={0.35}
-          metalness={0.1}
           emissive="#8b5cf6"
-          emissiveIntensity={0.55}
+          emissiveIntensity={0.9}
+          roughness={0.3}
+          metalness={0.2}
         />
+      </mesh>
+      <mesh ref={meshRef} scale={1.7}>
+        <circleGeometry args={[1, 64]} />
+        <meshStandardMaterial map={texture} roughness={0.4} metalness={0.05} />
       </mesh>
     </Float>
   );
@@ -56,7 +63,7 @@ export function HeroOrb() {
       <pointLight position={[0, 4, -4]} intensity={3} color="#22d3ee" />
       <pointLight position={[0, -3, 4]} intensity={2.5} color="#ffffff" />
       <Suspense fallback={null}>
-        <Orb />
+        <Portrait />
       </Suspense>
       <CameraRig />
     </Canvas>
