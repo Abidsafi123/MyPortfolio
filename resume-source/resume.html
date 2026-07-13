@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Abid Safi — Resume</title>
+<style>
+  :root {
+    --ink: #14181f;
+    --ink-soft: #3d4451;
+    --muted: #6b7280;
+    --accent: #2451c7;
+    --accent-soft: #eef2fd;
+    --line: #e2e5eb;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    color: var(--ink);
+    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    width: 210mm;
+    padding: 20mm 24mm;
+  }
+
+  /* ---------- Header ---------- */
+
+  header {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid var(--ink);
+    margin-bottom: 20px;
+  }
+
+  h1.name {
+    margin: 0;
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+
+  .role-line {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.01em;
+  }
+
+  .contact-line {
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 7px;
+    column-gap: 18px;
+    font-size: 11px;
+    color: var(--ink-soft);
+  }
+
+  .contact-line a {
+    color: var(--ink-soft);
+    text-decoration: none;
+  }
+
+  .contact-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .contact-item svg {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    color: var(--accent);
+  }
+
+  /* ---------- Sections ---------- */
+
+  section {
+    margin-bottom: 18px;
+  }
+
+  section:last-child {
+    margin-bottom: 0;
+  }
+
+  h2.section-title {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0 0 11px 0;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--ink);
+  }
+
+  h2.section-title::before {
+    content: "";
+    width: 5px;
+    height: 15px;
+    border-radius: 1px;
+    background: var(--accent);
+    display: inline-block;
+  }
+
+  .summary-text {
+    margin: 0;
+    font-size: 11.8px;
+    line-height: 1.62;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Skills ---------- */
+
+  .skills-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .skill-row {
+    display: flex;
+    font-size: 11.3px;
+    line-height: 1.55;
+    gap: 10px;
+  }
+
+  .skill-cat {
+    flex: 0 0 105px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .skill-list {
+    flex: 1;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Projects ---------- */
+
+  .project {
+    margin-bottom: 14px;
+  }
+
+  .project:last-child {
+    margin-bottom: 0;
+  }
+
+  .project-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 12.3px;
+  }
+
+  .project-title {
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .project-tech {
+    font-size: 10px;
+    color: var(--accent);
+    font-weight: 600;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .project-desc {
+    margin: 4px 0 0 0;
+    font-size: 11.2px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Two column lower section ---------- */
+
+  .lower-grid {
+    display: flex;
+    gap: 32px;
+  }
+
+  .lower-col {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .edu-item {
+    font-size: 11.3px;
+    line-height: 1.55;
+  }
+
+  .edu-degree {
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .edu-meta {
+    color: var(--ink-soft);
+  }
+
+  .chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  .chip {
+    font-size: 10.2px;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    padding: 4px 10px;
+    white-space: nowrap;
+  }
+
+  .plain-line {
+    font-size: 11.3px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  @media print {
+    body { padding: 0; }
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <h1 class="name">Abid Safi</h1>
+    <div class="role-line">Full-Stack MERN Developer · AI Application Developer · Automation Engineer</div>
+    <div class="contact-line">
+      <span class="contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Peshawar, Pakistan
+      </span>
+      <span class="contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +92&nbsp;313&nbsp;9594547
+      </span>
+      <span class="contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+        abidkhansafimd1002@gmail.com
+      </span>
+      <span class="contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l2.83-2.83a5 5 0 0 0-7.07-7.07L11.5 4.5"/><path d="M14 11a5 5 0 0 0-7.07 0L4.1 13.83a5 5 0 0 0 7.07 7.07L12.5 19.5"/></svg>
+        github.com/abidsafi123
+      </span>
+      <span class="contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l2.83-2.83a5 5 0 0 0-7.07-7.07L11.5 4.5"/><path d="M14 11a5 5 0 0 0-7.07 0L4.1 13.83a5 5 0 0 0 7.07 7.07L12.5 19.5"/></svg>
+        linkedin.com/in/abid-khan
+      </span>
+      <span class="contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l2.83-2.83a5 5 0 0 0-7.07-7.07L11.5 4.5"/><path d="M14 11a5 5 0 0 0-7.07 0L4.1 13.83a5 5 0 0 0 7.07 7.07L12.5 19.5"/></svg>
+        abidsafivercel.com
+      </span>
+    </div>
+  </header>
+
+  <section>
+    <h2 class="section-title">Professional Summary</h2>
+    <p class="summary-text">
+      Full-Stack MERN Developer with hands-on experience architecting and shipping scalable web applications, AI-powered products, and automated business workflows. Proficient across the modern JavaScript/TypeScript ecosystem — React, Next.js, Node.js, and MongoDB — with applied experience integrating OpenAI APIs, LLM-driven features, and n8n automation into production systems. Skilled in designing secure REST APIs, authentication flows, and data-rich dashboards that solve real business problems end to end.
+    </p>
+  </section>
+
+  <section>
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-row">
+        <span class="skill-cat">Frontend</span>
+        <span class="skill-list">React, Next.js, TypeScript, JavaScript, Tailwind CSS, HTML, CSS</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">Backend</span>
+        <span class="skill-list">Node.js, Express.js, REST APIs, Authentication, JWT</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">Database</span>
+        <span class="skill-list">MongoDB, Mongoose</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">AI</span>
+        <span class="skill-list">OpenAI API, Prompt Engineering, LLM Integration</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">Automation</span>
+        <span class="skill-list">n8n, Webhooks, API Integrations</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">Tools</span>
+        <span class="skill-list">Git, GitHub, Docker, Postman, VS Code</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Featured Projects</h2>
+
+    <div class="project">
+      <div class="project-head">
+        <span class="project-title">AI Financial Coach</span>
+        <span class="project-tech">Next.js · Node.js · MongoDB · OpenAI API · Plaid</span>
+      </div>
+      <p class="project-desc">AI-powered financial coaching platform that helps users analyze spending habits, connect bank accounts, track savings goals, and receive personalized financial insights and recommendations.</p>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <span class="project-title">AI News Analyzer</span>
+        <span class="project-tech">React · Node.js · MongoDB · Python · Machine Learning</span>
+      </div>
+      <p class="project-desc">Intelligent news analysis platform that classifies fake news, identifies political bias, generates AI summaries, and analyzes English and Urdu articles using NLP and large language models.</p>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <span class="project-title">School Management System</span>
+        <span class="project-tech">Next.js · Node.js · Express · MongoDB</span>
+      </div>
+      <p class="project-desc">Full school ERP with Admin, Teacher, Student, Parent, Coordinator, and Computer Operator portals — covering attendance, examinations, fee management, reports, and role-based authentication.</p>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <span class="project-title">Workflow Automation Platform</span>
+        <span class="project-tech">n8n · APIs · Webhooks</span>
+      </div>
+      <p class="project-desc">Automated business workflows built on n8n, integrating WhatsApp, email, Google Sheets, AI agents, and CRMs to eliminate repetitive manual tasks across the business.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Education</h2>
+    <div class="edu-item">
+      <span class="edu-degree">Bachelor of Science in Computer Science</span>
+      <span class="edu-meta"> — Abdul Wali Khan University Mardan · Expected Graduation 2026</span>
+    </div>
+  </section>
+
+  <div class="lower-grid">
+    <div class="lower-col" style="flex: 1.4;">
+      <section>
+        <h2 class="section-title">Core Strengths</h2>
+        <div class="chip-row">
+          <span class="chip">Problem Solving</span>
+          <span class="chip">System Design</span>
+          <span class="chip">REST API Development</span>
+          <span class="chip">Database Design</span>
+          <span class="chip">Authentication</span>
+          <span class="chip">AI Integration</span>
+          <span class="chip">Automation</span>
+          <span class="chip">Clean Code</span>
+          <span class="chip">Responsive UI</span>
+          <span class="chip">Performance Optimization</span>
+        </div>
+      </section>
+    </div>
+
+    <div class="lower-col" style="flex: 1;">
+      <section>
+        <h2 class="section-title">Certifications</h2>
+        <p class="plain-line">Actively pursuing industry certifications — to be updated upon completion.</p>
+      </section>
+
+      <section>
+        <h2 class="section-title">Languages</h2>
+        <p class="plain-line">English · Urdu · Pashto</p>
+      </section>
+    </div>
+  </div>
+
+</body>
+</html>
